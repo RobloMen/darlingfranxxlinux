@@ -84,17 +84,20 @@
         .feature-icon { font-size: 3rem; margin-bottom: 1rem; }
         .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary); }
 
-        .customization { padding: 100px 0; }
-        .customization-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-        .customization-item { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 42, 109, 0.2); transition: transform 0.3s ease; }
-        .customization-item:hover { transform: scale(1.05); }
-        .customization-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .wallpapers { padding: 100px 0; }
+        .wallpapers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .wallpaper-item { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 42, 109, 0.2); transition: transform 0.3s ease; }
+        .wallpaper-item:hover { transform: scale(1.05); }
+        .wallpaper-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
 
         .download { padding: 100px 0; background: rgba(12, 14, 28, 0.8); }
-        .download-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .download-card { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid rgba(0, 247, 255, 0.2); }
-        .download-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary); }
-        .download-card p { margin-bottom: 1.5rem; color: var(--gray); }
+        .download-main { text-align: center; max-width: 600px; margin: 0 auto; }
+        .download-card { background: rgba(255, 255, 255, 0.05); padding: 3rem; border-radius: 15px; border: 2px solid rgba(0, 247, 255, 0.3); margin-bottom: 2rem; }
+        .download-card h3 { font-size: 2rem; margin-bottom: 1rem; color: var(--secondary); }
+        .download-card p { margin-bottom: 2rem; color: var(--gray); font-size: 1.1rem; }
+        .download-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .download-feature { text-align: center; padding: 1rem; }
+        .download-feature .icon { font-size: 2rem; margin-bottom: 0.5rem; color: var(--primary); }
 
         .footer { background: var(--dark); padding: 2rem 0; text-align: center; border-top: 1px solid rgba(255, 42, 109, 0.3); }
         .footer p { color: var(--gray); margin-bottom: 0.5rem; }
@@ -116,7 +119,7 @@
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#download">Download</a></li>
-                <li><a href="#customization">Customization</a></li>
+                <li><a href="#wallpapers">Wallpapers</a></li>
                 <li><a href="#features">Features</a></li>
             </ul>
         </nav>
@@ -126,15 +129,15 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h2 class="hero-title">CODE WITH YOUR <span class="highlight">PARTNER</span></h2>
-                <p class="hero-subtitle">Professional penetration testing distribution inspired by Darling in the FranXX</p>
+                <p class="hero-subtitle">Professional penetration testing distribution with custom DarlingFranxx wallpapers</p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">Download ISO</a>
-                    <a href="#customization" class="btn btn-secondary">Customize</a>
+                    <a href="#wallpapers" class="btn btn-secondary">View Wallpapers</a>
                 </div>
             </div>
             <div class="zero-two-container">
                 <div class="zero-two-title">ZERO TWO</div>
-                <div class="zero-two-subtitle">"Darling, let's code together"</div>
+                <div class="zero-two-subtitle">"Custom wallpapers included"</div>
             </div>
         </div>
     </section>
@@ -143,6 +146,11 @@
         <div class="container">
             <h2 class="section-title">SYSTEM FEATURES</h2>
             <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Custom Wallpapers</h3>
+                    <p>Exclusive DarlingFranxx themed wallpapers included</p>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>KDE Plasma Desktop</h3>
@@ -158,34 +166,29 @@
                     <h3>Custom Utilities</h3>
                     <p>Special tools and scripts for efficient workflow</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Optimized Performance</h3>
-                    <p>Fine-tuned for security testing and development</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <section id="customization" class="customization">
+    <section id="wallpapers" class="wallpapers">
         <div class="container">
-            <h2 class="section-title">CUSTOMIZATION</h2>
-            <p class="section-subtitle">Personalize your DarlingFranxx Linux experience</p>
-            <div class="customization-grid">
-                <div class="customization-item">
-                    <div class="customization-icon">🎨</div>
-                    <h3>Themes & Appearance</h3>
-                    <p>Custom color schemes and visual styles</p>
+            <h2 class="section-title">INCLUDED WALLPAPERS</h2>
+            <p class="section-subtitle">Exclusive DarlingFranxx themed wallpapers pre-installed</p>
+            <div class="wallpapers-grid">
+                <div class="wallpaper-item">
+                    <div class="wallpaper-icon">🖼️</div>
+                    <h3>DarlingFranxx Default</h3>
+                    <p>Main wallpaper with custom design</p>
                 </div>
-                <div class="customization-item">
-                    <div class="customization-icon">🖼️</div>
-                    <h3>Wallpapers</h3>
-                    <p>Personalized background images including Zero Two</p>
+                <div class="wallpaper-item">
+                    <div class="wallpaper-icon">🌟</div>
+                    <h3>4K Resolution</h3>
+                    <p>High-quality 3840x2160 wallpapers</p>
                 </div>
-                <div class="customization-item">
-                    <div class="customization-icon">⚙️</div>
-                    <h3>Desktop Layout</h3>
-                    <p>Custom widgets and panel configurations</p>
+                <div class="wallpaper-item">
+                    <div class="wallpaper-icon">📱</div>
+                    <h3>Ultrawide Support</h3>
+                    <p>3440x1440 wallpapers included</p>
                 </div>
             </div>
         </div>
@@ -193,25 +196,33 @@
 
     <section id="download" class="download">
         <div class="container">
-            <h2 class="section-title">DOWNLOAD DARLINGFRANXX</h2>
-            <div class="download-options">
+            <h2 class="section-title">DOWNLOAD ISO</h2>
+            <div class="download-main">
                 <div class="download-card">
-                    <h3>ISO Image</h3>
-                    <p>Full installation for bare metal or virtual machines</p>
-                    <button class="btn btn-primary" onclick="showMessage('ISO download will be available soon!')">Download ISO (2.1 GB)</button>
-                    <small>SHA256: a1b2c3d4...</small>
+                    <h3>DarlingFranxx Linux ISO</h3>
+                    <p>Complete penetration testing distribution with custom wallpapers, KDE Plasma desktop, and pre-configured tools.</p>
+                    <button class="btn btn-primary" onclick="showMessage('ISO download will be available soon!')">
+                        Download ISO (3.2 GB)
+                    </button>
+                    <small>SHA256: darlingfranxx2024...</small>
                 </div>
-                <div class="download-card">
-                    <h3>WSL Distribution</h3>
-                    <p>For Windows Subsystem for Linux</p>
-                    <button class="btn btn-primary" onclick="showMessage('WSL version coming soon!')">Download .tar.gz (1.8 GB)</button>
-                    <small>Extract and import to WSL</small>
-                </div>
-                <div class="download-card">
-                    <h3>Vagrant Box</h3>
-                    <p>For development and testing</p>
-                    <button class="btn btn-primary" onclick="showMessage('Vagrant box in development!')">Download .box (1.5 GB)</button>
-                    <small>Ready for VirtualBox/VMware</small>
+                
+                <div class="download-features">
+                    <div class="download-feature">
+                        <div class="icon">🎨</div>
+                        <h4>Custom Wallpapers</h4>
+                        <p>Exclusive DarlingFranxx designs</p>
+                    </div>
+                    <div class="download-feature">
+                        <div class="icon">⚡</div>
+                        <h4>Ready to Use</h4>
+                        <p>Pre-configured tools and settings</p>
+                    </div>
+                    <div class="download-feature">
+                        <div class="icon">🔧</div>
+                        <h4>Latest Tools</h4>
+                        <p>Updated penetration testing suite</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -220,7 +231,7 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 DarlingFranxx Linux. Professional cybersecurity distribution.</p>
-            <p>For educational and authorized testing purposes only.</p>
+            <p>Includes custom wallpapers and pre-configured desktop environment.</p>
         </div>
     </footer>
 
@@ -252,7 +263,7 @@
                 });
             }, { threshold: 0.1 });
 
-            document.querySelectorAll('.feature-card, .download-card, .customization-item').forEach(el => {
+            document.querySelectorAll('.feature-card, .download-card, .wallpaper-item, .download-feature').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
