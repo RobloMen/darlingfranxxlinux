@@ -1,1 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarlingFranxx Linux - Your Partner in Cybersecurity</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #ff2a6d; --secondary: #00f7ff; --accent: #ff5a8d;
+            --dark: #0c0e1c; --darker: #080a14; --light: #ffffff; --gray: #8b93b3;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--darker); color: var(--light); line-height: 1.6; }
+        
+        .background-animation { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -1; 
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
 
+        .header { position: fixed; top: 0; width: 100%; background: rgba(12, 14, 28, 0.95); z-index: 1000; border-bottom: 1px solid rgba(255, 42, 109, 0.3); }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .logo h1 { font-family: 'Courier New', monospace; font-size: 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-menu a { color: var(--light); text-decoration: none; font-weight: 600; transition: color 0.3s ease; position: relative; }
+        .nav-menu a:hover { color: var(--primary); }
+        .nav-menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s ease; }
+        .nav-menu a:hover::after { width: 100%; }
+
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 100px 2rem 2rem;
+            background: linear-gradient(rgba(12, 14, 28, 0.8), rgba(12, 14, 28, 0.9)), url('wallpaper.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-title { font-family: 'Courier New', monospace; font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+        .highlight { background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle { font-size: 1.3rem; color: var(--gray); margin-bottom: 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; }
+        .btn { padding: 12px 30px; border: none; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; cursor: pointer; display: inline-block; text-align: center; }
+        .btn-primary { background: var(--primary); color: var(--light); }
+        .btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3); }
+        .btn-secondary { background: transparent; color: var(--light); border: 2px solid var(--secondary); }
+        .btn-secondary:hover { background: var(--secondary); color: var(--dark); transform: translateY(-2px); }
+
+        .zero-two-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .zero-two-title {
+            font-family: 'Courier New', monospace;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .zero-two-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-title { font-family: 'Courier New', monospace; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-subtitle { text-align: center; color: var(--gray); font-size: 1.2rem; margin-bottom: 3rem; }
+
+        .features { padding: 100px 0; background: rgba(12, 14, 28, 0.8); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .feature-card { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 42, 109, 0.2); transition: transform 0.3s ease; }
+        .feature-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary); }
+
+        .customization { padding: 100px 0; }
+        .customization-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .customization-item { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 42, 109, 0.2); transition: transform 0.3s ease; }
+        .customization-item:hover { transform: scale(1.05); }
+        .customization-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+        .download { padding: 100px 0; background: rgba(12, 14, 28, 0.8); }
+        .download-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .download-card { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid rgba(0, 247, 255, 0.2); }
+        .download-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary); }
+        .download-card p { margin-bottom: 1.5rem; color: var(--gray); }
+
+        .footer { background: var(--dark); padding: 2rem 0; text-align: center; border-top: 1px solid rgba(255, 42, 109, 0.3); }
+        .footer p { color: var(--gray); margin-bottom: 0.5rem; }
+
+        @media (max-width: 768px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-title { font-size: 2.5rem; }
+            .nav-menu { display: none; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo"><h1>DARLINGFRANXX LINUX</h1></div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#customization">Customization</a></li>
+                <li><a href="#features">Features</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-title">CODE WITH YOUR <span class="highlight">PARTNER</span></h2>
+                <p class="hero-subtitle">Professional penetration testing distribution inspired by Darling in the FranXX</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">Download ISO</a>
+                    <a href="#customization" class="btn btn-secondary">Customize</a>
+                </div>
+            </div>
+            <div class="zero-two-container">
+                <div class="zero-two-title">ZERO TWO</div>
+                <div class="zero-two-subtitle">"Darling, let's code together"</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">SYSTEM FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>KDE Plasma Desktop</h3>
+                    <p>Beautiful and customizable desktop environment</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Penetration Testing</h3>
+                    <p>Complete suite of cybersecurity tools</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Custom Utilities</h3>
+                    <p>Special tools and scripts for efficient workflow</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Optimized Performance</h3>
+                    <p>Fine-tuned for security testing and development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customization" class="customization">
+        <div class="container">
+            <h2 class="section-title">CUSTOMIZATION</h2>
+            <p class="section-subtitle">Personalize your DarlingFranxx Linux experience</p>
+            <div class="customization-grid">
+                <div class="customization-item">
+                    <div class="customization-icon">🎨</div>
+                    <h3>Themes & Appearance</h3>
+                    <p>Custom color schemes and visual styles</p>
+                </div>
+                <div class="customization-item">
+                    <div class="customization-icon">🖼️</div>
+                    <h3>Wallpapers</h3>
+                    <p>Personalized background images including Zero Two</p>
+                </div>
+                <div class="customization-item">
+                    <div class="customization-icon">⚙️</div>
+                    <h3>Desktop Layout</h3>
+                    <p>Custom widgets and panel configurations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">DOWNLOAD DARLINGFRANXX</h2>
+            <div class="download-options">
+                <div class="download-card">
+                    <h3>ISO Image</h3>
+                    <p>Full installation for bare metal or virtual machines</p>
+                    <button class="btn btn-primary" onclick="showMessage('ISO download will be available soon!')">Download ISO (2.1 GB)</button>
+                    <small>SHA256: a1b2c3d4...</small>
+                </div>
+                <div class="download-card">
+                    <h3>WSL Distribution</h3>
+                    <p>For Windows Subsystem for Linux</p>
+                    <button class="btn btn-primary" onclick="showMessage('WSL version coming soon!')">Download .tar.gz (1.8 GB)</button>
+                    <small>Extract and import to WSL</small>
+                </div>
+                <div class="download-card">
+                    <h3>Vagrant Box</h3>
+                    <p>For development and testing</p>
+                    <button class="btn btn-primary" onclick="showMessage('Vagrant box in development!')">Download .box (1.5 GB)</button>
+                    <small>Ready for VirtualBox/VMware</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 DarlingFranxx Linux. Professional cybersecurity distribution.</p>
+            <p>For educational and authorized testing purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setupSmoothScroll();
+            setupAnimations();
+        });
+
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        function setupAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.feature-card, .download-card, .customization-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        function showMessage(text) {
+            alert(text);
+        }
+    </script>
+</body>
+</html>
